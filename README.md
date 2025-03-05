@@ -1,7 +1,5 @@
 # FincapBE
 
-Backend Setup – FinacBE
-
 1. Clone the repository
    • git clone https://github.com/YogeshBasavaraju97/FinacBE.git
    • cd FinacBE
