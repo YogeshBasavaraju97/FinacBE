@@ -1,5 +1,6 @@
 const express = require("express");
 const connectDB = require("./config/database");
+require("dotenv").config();
 
 const cors = require("cors");
 
@@ -13,13 +14,13 @@ app.use(cookieParser());
 
 app.use("/user", router);
 
-app.listen(7777, () => {
+app.listen(process.env.PORT, () => {
   connectDB()
     .then(() => {
       console.log("Database connection established");
-      console.log("server successfully listening on post 7777");
+      console.log("server successfully started");
     })
     .catch((err) => {
-      console.error("Database cannot be connected");
+      console.error("Database cannot be connected", err);
     });
 });

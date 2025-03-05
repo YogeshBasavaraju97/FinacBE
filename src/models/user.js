@@ -28,7 +28,7 @@ const userSchema = new Schema(
         },
       },
     },
-    gender: { type: String, enum: ["Male", "Female", "others"] },
+    gender: { type: String, enum: ["Male", "Female", "Others"] },
 
     about: { type: String, maxlength: 5000 },
   },
@@ -37,7 +37,7 @@ const userSchema = new Schema(
 
 userSchema.methods.getJWT = async function () {
   const user = this;
-  const token = await jwt.sign({ _id: user._id }, "FinacPluse@123", {
+  const token = await jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
     expiresIn: "1hr",
   });
 
